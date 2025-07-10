@@ -1,4 +1,4 @@
-# End-to-end data pipeline and BI dashboarding using Python, SQL Server, and Power BI — turning raw retail data into decision-ready insights
+# End-to-end data pipeline and BI dashboarding using Python, SQL Server, and Power BI — turning raw retail data into decision-ready insights.
 
 
 ###  Data Analytics Dashboards Portfolio
