@@ -17,8 +17,8 @@ This repository contains business dashboards created using **Python (ETL), Micro
 
 | Dashboard Name                                           | Description                                                                |
 | -------------------------------------------------------- | -------------------------------------------------------------------------- |
-| [`af.ai - sales.pdf`](./af.ai%20-%20sales.pdf)           | Sales dashboard showing revenue trends and product breakdown.              |
 | [`af.ai - purchase.pdf`](./af.ai%20-%20purchase.pdf)     | Purchase patterns, vendor performance, and spend optimization.             |
+| [`af.ai - sales.pdf`](./af.ai%20-%20sales.pdf)           | Sales dashboard showing revenue trends and product breakdown.              |
 | [`af.ai - expense.pdf`](./af.ai%20-%20expense.pdf)       | Expense analysis to identify overheads and opportunities for cost control. |
 | [`bb 50-50 sales.pdf`](./bb%2050-50%20sales.pdf)         | SKU-level sales analysis for the 50-50 category.                           |
 | [`bb stores sales.pdf`](./bb%20stores%20sales.pdf)       | Multi-store sales performance tracking.                                    |
