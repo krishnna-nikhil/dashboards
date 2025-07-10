@@ -23,7 +23,6 @@ This repository contains business dashboards created using **Python (ETL), Micro
 | [`bb 50-50 sales.pdf`](./bb%2050-50%20sales.pdf)         | SKU-level sales analysis for the 50-50 category.                           |
 | [`bb stores sales.pdf`](./bb%20stores%20sales.pdf)       | Multi-store sales performance tracking.                                    |
 | [`bb stores purchase.pdf`](./bb%20stores%20purchase.pdf) | Procurement dashboard across stores.                                       |
-| [`customer churn.pdf`](./customer%20churn.pdf)           | Churn analysis to monitor customer retention and segment performance.      |
 
 ---
 
