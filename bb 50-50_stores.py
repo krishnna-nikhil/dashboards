@@ -1,10 +1,5 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
-
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Path to the Excel file
 file_path = "/Users/devnikhil/Downloads/Sales Analysis Report (sale.report) - 2025-06-28T175844.229.xlsx"
@@ -15,9 +10,6 @@ df = pd.read_excel(file_path)
 # Create the 'fifty_disc' column based on the condition for 'Discount %'
 
 df['Total'].fillna(0, inplace=True)
-
-
-
 
 df.info()
 
@@ -47,19 +39,9 @@ df = df[df['Customer'] != 'SRI DEEPA RETAIL']
 
 df = df[df['Customer'] != 'KIKO']
 
-
-
-
-
 print("Specified products have been removed from the DataFrame.")
 
 df.info()
-
-
-# In[146]:
-
-
-import pandas as pd
 
 # Ensure 'Order Date' is in datetime format
 df['Order Date'] = pd.to_datetime(df['Order Date'])
@@ -75,10 +57,6 @@ df['week'] = ((pd.to_datetime(df['date']) - pd.to_datetime(earliest_date)).dt.da
 
 # Display the updated DataFrame
 df[['date', 'week']].drop_duplicates().sort_values(by='date')
-
-
-# In[147]:
-
 
 # Step 1: Get unique bills per Order Date
 bill_summary = df.groupby('Order Date', as_index=False)['Total'].sum()
@@ -120,10 +98,6 @@ weekly_summary = weekly_summary[col_order]
 # Output
 print(weekly_summary)
 
-
-# In[148]:
-
-
 # Step 1: Get unique bills per Order Date
 bill_summary = df.groupby('Order Date', as_index=False)['Total'].sum()
 
@@ -137,24 +111,6 @@ week_4_above_3000 = bill_summary[(bill_summary['week'] == 4) & (bill_summary['To
 # Step 4: Display unique order dates
 print("Unique Order Dates with bills above 3000 in week 4:")
 print(week_4_above_3000[['Order Date', 'Total']].sort_values(by='Total', ascending=False))
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[150]:
-
-
-import pandas as pd
 
 # Filter data for Week 4
 week_4_data = df[df['week'] == 4]
@@ -186,9 +142,6 @@ print("total sales")
 print(branch_total_sales_df.to_string(index=False))
 
 
-# In[151]:
-
-
 comparison_df = df[df['week'].isin([3, 4])].groupby(['Company', 'week'])['Total'].sum().unstack().assign(
     Difference=lambda x: x[4] - x[3],
     Percentage_Change=lambda x: (x[4] - x[3]) / x[3] * 100
@@ -199,15 +152,6 @@ comparison_df = comparison_df.set_index('Company').reindex(custom_order).reset_i
 
 # Display the final DataFrame
 print(comparison_df)
-
-
-# In[152]:
-
-
-import pandas as pd
-
-# Assuming 'df' is your DataFrame that contains the sales data
-# Example: df = pd.read_csv('your_data.csv')
 
 # Initialize an empty list to store summary rows
 weekly_summary_data = []
@@ -268,10 +212,6 @@ weekly_summary_df = weekly_summary_df.set_index('Company').loc[ordered_companies
 # Print the final DataFrame
 print(weekly_summary_df)
 
-
-# In[153]:
-
-
 # Step 1: Filter the DataFrame for week == 4
 df_week_4 = df[df['week'] == 4]
 
@@ -301,10 +241,6 @@ company_sales_summary_week_4 = company_sales_summary_week_4.set_index('Company')
 # Print the updated DataFrame with the percentages and the ordered companies
 print(company_sales_summary_week_4)
 
-
-# In[154]:
-
-
 # Step 1: Filter the DataFrame for week == 4
 df_week_4 = df[df['week'] == 4]
 
@@ -329,13 +265,6 @@ company_sales_summary_week_4['Total 50% Discount Sales %'] = (
 
 # Step 5: Print the result as is (no reordering)
 print(company_sales_summary_week_4)
-
-
-# In[155]:
-
-
-import pandas as pd
-import matplotlib.pyplot as plt
 
 # Filter data for Week 1 and Week 2
 week_1_data = df[df['week'] == 3]
@@ -371,18 +300,6 @@ top_50_revenue_loss_products_unique = top_50_revenue_loss_products.drop_duplicat
 
 # Display the filtered top 50 products with the most significant revenue loss from Week 1 to Week 2
 print(top_50_revenue_loss_products_unique[['Product Variant', 'Revenue Loss']])
-
-
-
-
-
-
-
-# In[156]:
-
-
-import pandas as pd
-import matplotlib.pyplot as plt
 
 # Filter data for Week 1 and Week 2
 week_1_data = df[df['week'] == 3]
@@ -420,10 +337,6 @@ top_50_revenue_gain_products = positive_revenue_gain_sorted.head(20)
 
 # Display the filtered top 50 products with the most significant revenue gain from Week 1 to Week 2
 print(top_50_revenue_gain_products[['Product Variant', 'Revenue Gain']])
-
-
-# In[157]:
-
 
 # Step 1: Filter the data for week 3
 week_3_df = df[df['week'] == 4]
@@ -465,12 +378,6 @@ summary = summary[['Company', 'Total NoB', '1–4 Qty (%)', '5–9 Qty (%)', '10
 # Step 8: Display the summary
 print(summary)
 
-
-
-
-# In[158]:
-
-
 # Step 1: Filter the data for week 3
 week_3_df = df[df['week'] == 3]
 
@@ -511,14 +418,6 @@ summary1 = summary1[['Company', 'Total NoB', '1–4 Qty (%)', '5–9 Qty (%)', '
 # Step 8: Display the summary
 print(summary1)
 
-
-# In[159]:
-
-
-import pandas as pd
-
-# Assuming df is your DataFrame and 'week' is already a column in your data
-
 # Filter data for the 4th week
 fourth_week_data = df[df['week'] == 4]
 
@@ -543,8 +442,6 @@ top_products_rjj = (
 # Print the top 25 products based on total sales for the company 'RJJ'
 print(top_products_rjj)
 
-
-# In[160]:
 
 
 from openpyxl import Workbook
@@ -664,22 +561,3 @@ for row in company_sales_summary_week_4.itertuples(index=False, name=None):  # U
 wb.save(file_path)
 
 print(f"Data successfully added to {file_path}.")
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
