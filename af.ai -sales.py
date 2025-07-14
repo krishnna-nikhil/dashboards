@@ -1,38 +1,15 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[72]:
-
-
 import pandas as pd
 
 # Path to the Excel file
 file_path = "/Users/devnikhil/Downloads/Final_May(1).xlsx"
 
-# Load the Excel file into a DataFrame
 df = pd.read_excel(file_path)
-
-
-# In[73]:
-
 
 df.info()
 
-
-# In[76]:
-
-
 df.head()
 
-
-# In[75]:
-
-
 df.rename(columns={"Customer Category": "Trade Type"}, inplace=True)
-
-
-# In[77]:
-
 
 df['Trade Type'] = df['Trade Type'].str.strip().str.lower()
 
@@ -43,12 +20,7 @@ print("Unique values in the 'MT/GT' column:")
 for value in unique_gt_mt_values:
     print(value)
 
-# Optionally, count the number of unique values
 print(f"\nTotal number of unique values in the 'MT/GT' column: {len(unique_gt_mt_values)}")
-
-
-# In[78]:
-
 
 # Filter the DataFrame for rows where 'GT/MT' column has the value 'MT'
 filtered_df = df[df['Trade Type'] == 'gt']
@@ -63,13 +35,6 @@ customer_totals_GT = (
 # Display the result
 print("Customer Name GT wise Item Total (descending order):")
 print(customer_totals_GT)
-
-# Save to a CSV file if needed
-
-
-
-# In[79]:
-
 
 # Filter the DataFrame for rows where 'GT/MT' column has the value 'MT'
 filtered_df1 = df[df['Trade Type'] == 'mt']
@@ -85,12 +50,6 @@ customer_totals_MT = (
 print("Customer Name MT wise Item Total (descending order):")
 print(customer_totals_MT)
 
-# Save to a CSV file if needed
-
-
-# In[80]:
-
-
 # Date-wise GRN Amount total
 date_wise_grn = df.groupby('Invoice Date')['Item Total'].sum().reset_index()
 df['Line Item Location Name'] = df['Line Item Location Name'].str.lower().str.strip()
@@ -103,9 +62,6 @@ print("Date-wise GRN Amount Total:\n", date_wise_grn)
 print("\nCity-wise GRN Amount Total:\n", city_wise_grn)
 
 
-# In[81]:
-
-
 # Pivot the data to create the desired format
 pivoted_df = df.pivot_table(
     index='Invoice Date',  # Use Invoice Date as the index
@@ -114,17 +70,7 @@ pivoted_df = df.pivot_table(
     aggfunc='sum',         # Aggregate Item Total values by summing them (if there are duplicates)
     fill_value=0           # Replace NaN with 0 for missing values
 ).reset_index()
-
-
-
-# Display the transformed DataFrame
 print(pivoted_df)
-
-# Output the file path
-
-
-
-# In[82]:
 
 
 # Date-wise GRN Amount total
@@ -136,7 +82,6 @@ project_wise = df.groupby('Item Name')['Item Total'].sum().sort_values(ascending
 print("Date-wise GRN Amount Total:\n", project_wise)
 
 
-# In[83]:
 
 
 # Filter the DataFrame for rows where 'GT/MT' column has the value 'MT'
@@ -153,7 +98,6 @@ customer_totals_GT = (
 print("Customer Name GT wise Item Total (descending order):")
 print(customer_totals_GT)
 
-# Save to a CSV file if needed
 
 
 filtered_df1 = df[df['Trade Type'] == 'mt']
@@ -229,16 +173,3 @@ with pd.ExcelWriter(file_path, engine="xlsxwriter") as writer:
     project_wise.to_frame().to_excel(writer, sheet_name="Projectwise_GRN")
 
 print(f"File saved successfully: {file_path}")
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
