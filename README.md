@@ -50,7 +50,7 @@ The portfolio is built around **real-world retail business scenarios** covering 
 | `af.ai - purchase.pdf`   | Purchase behavior insights and vendor optimization levers |
 | `af.ai - expense.pdf`    | Expense structure visibility and financial efficiency     |
 | `af.ai - sales.pdf`      | Sales pipeline performance and growth opportunity mapping |
-| `bb 50-50 sales.pdf`     | Category and SKU contribution breakdown                   |
+| `bb 50-50 sales.pdf`     | Intelligence reporting for 50-50 stores            |
 | `bb stores sales.pdf`    | Store-level sales benchmarking and performance ranking    |
 | `bb stores purchase.pdf` | Procurement analysis across multi-store environments      |
 
